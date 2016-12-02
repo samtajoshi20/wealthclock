@@ -18,6 +18,9 @@ app.config(function($routeProvider) {
   }).when("/company-owner/dashboard", {
     templateUrl : "app/templates/companyOwner/dashboard.html",
     controller : "companyOwnerCtrl"
+  }).when("/company-owner/contact/add", {
+    templateUrl : "app/templates/companyOwner/addContact.html",
+    controller : "companyOwnerCtrl"
   }).when("/product-owner/login", {
     templateUrl : "app/templates/productOwner/login.html",
     controller : "productOwnerCtrl"

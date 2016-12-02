@@ -29,20 +29,28 @@
 
 											<div class="space-6"></div>
 
-											<form>
+											<form name="loginForm" novalidate >
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="email" name="companyEmail" class="form-control" ng-model="login.companyEmail" placeholder="Email" required />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
+														<div ng-show="loginForm.$submitted || loginForm.companyEmail.$touched">
+															<small ng-show="loginForm.companyEmail.$error.required || loginForm.companyEmail.$error.email">Please Enter valid email address</small>
+														</div>
+
+
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" name="companyPassword" ng-model="login.companyPassword" class="form-control" placeholder="Password" required />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
+														<div ng-show="loginForm.$submitted || loginForm.companyPassword.$touched">
+															<small ng-show="loginForm.companyPassword.$error.required || loginForm.companyEmail.$error.email">Please Enter password</small>
+														</div>
 													</label>
 
 													<div class="space"></div>
@@ -53,7 +61,7 @@
 															<span class="lbl"> Remember Me</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="loginCompany(login)" ng-disabled="loginForm.$invalid">
 															<i class="ace-icon fa fa-key"></i>
 															<span class="bigger-110">Login</span>
 														</button>

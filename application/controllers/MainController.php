@@ -22,4 +22,20 @@ class MainController extends CI_Controller {
 	{
 		$this->load->view('MainView');
 	}
+
+	public function checkUserSession()
+	{
+		if($this->session->userdata('userId'))
+		{
+		$userArray = array('authenticated' => 'true', 'userId' => $this->session->userdata('userId'), 'userEmail' => $this->session->userdata('userEmail'));
+ 			
+ 		}
+ 		else 
+ 		{
+ 			$userArray = array('authenticated' => 'false');
+ 		}
+ 		echo json_encode($userArray);
+		
+	}
+
 }

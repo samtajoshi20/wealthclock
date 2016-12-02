@@ -131,6 +131,7 @@
 	var dropdown = function() {
 
 		$('.has-dropdown').mouseenter(function(){
+			//alert('test');
 
 			var $this = $(this);
 			$this
