@@ -31,11 +31,19 @@ app.run(function($rootScope, $location, $http){
 
 app.controller('frontSiteCtrl', function($scope, $http, $location){
 		$scope.Message = "Wealth Clock Front Site";
-				if($location.path() == '/') 
-					$scope.header = 'app/templates/frontSite/homeHeader.html';
+				if($location.path() == '/')
+        {
+          $scope.header = 'app/templates/frontSite/homeHeader.html';
+          $scope.footer = 'app/templates/frontSite/footer.html';
+        } 
+					
 				else 
-					$scope.header = 'app/templates/frontSite/innerHeader.html';
-					$scope.footer = 'app/templates/frontSite/footer.html';
+        {
+          $scope.header = 'app/templates/frontSite/innerHeader.html';
+          $scope.footer = 'app/templates/frontSite/innerfooter.html';
+        }
+					
+					
 
     });
 
