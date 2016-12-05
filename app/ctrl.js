@@ -32,7 +32,6 @@ app.run(function($rootScope, $location, $http){
 				});
 			});*/
 		}); 
-
 app.controller('frontSiteCtrl', function($scope, $http, $location){
 		$scope.Message = "Content";
 				if($location.path() == '/') 
@@ -48,8 +47,7 @@ app.controller('frontSiteCtrl', function($scope, $http, $location){
 					
 				}
 
-		});
-
+});
 app.controller('productOwnerCtrl', function($scope, $http){
 		$scope.Message = "Wealth Clock Product Owner";
 		if($location.path() == '/product-owner/login') 
