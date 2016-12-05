@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
+		<link rel="stylesheet" href="assets/css/select2.min.css" />
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
@@ -1031,11 +1032,11 @@
 															</div>
 				</div>
 				<div class="col-sm-6">
-				<label class="col-sm-4 control-label">Place/Branch/Office<span class="red-star">*</span></label>
+				<label class="col-sm-4 control-label">Place<span class="red-star">*</span></label>
 				<input id="form-field-1" class="col-sm-8" placeholder="Place/Branch/Office" name="contactPlace" ng-model="contact.contactPlace" type="text" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
 				<div ng-show="addContactForm.$submitted || addContactForm.contactPlace.$touched">
-															<small ng-show="addContactForm.contactPlace.$error.required">Please Enter Place/Branch/Office.</small>
+															<small ng-show="addContactForm.contactPlace.$error.required">Please Enter Place.</small>
 															</div>
 				</div>
 				
@@ -1051,12 +1052,21 @@
 															</div>
 				</div>
 				<div class="col-sm-6">
+					
 				<label class="col-sm-4 control-label">City<span class="red-star">*</span></label>
-				<input id="form-field-1" class="col-sm-8" placeholder="City" type="text" name="contactCity" ng-model="contact.contactCity" required>
+				&nbsp;
+								<select id="contactCity" name="contactCity" class="select2 col-sm-8" data-placeholder="Click to Choose..." ng-model="contact.contactCity"  ng-options="city.name for city in cityList">
+									<option value=""></option>
+											</select>
+								<span class="ui-pg-button ui-corner-all pull-right" data-toggle="modal" data-target="#addCityModal" title="Add new row"><span class="ui-pg-div"><span class="ui-icon ace-icon fa fa-plus-circle purple"></span></span></span>
+				
+				
+				
 				<label class="col-sm-4 control-label">&nbsp;</label>
 				<div ng-show="addContactForm.$submitted || addContactForm.contactCity.$touched">
 															<small ng-show="addContactForm.contactCity.$error.required">Please Enter City.</small>
 															</div>
+				
 				</div>
 				
 			</div>
@@ -1282,7 +1292,7 @@
 			</div>
 			<div class="form-group">
 			<div class="col-md-offset-4 col-md-8">
-				<button class="btn btn-info" type="submit" ng-click="saveContact(contact)" ng-disabled="addContactForm.$invalid">
+				<button class="btn btn-info" ng-click="saveContact(contact)" ng-disabled="addContactForm.$invalid">
 					<i class="ace-icon fa fa-check bigger-110"></i>
 					Submit
 				</button>
@@ -1296,6 +1306,60 @@
 			</div>
 										
 				</form>
+	<!--Add City Modal Begins-->
+				
+				<!-- Modal -->
+					<div class="modal fade" id="addCityModal" role="dialog">
+					  <div class="modal-dialog modal-sm">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Add City</h4>
+						  </div>
+						  <form name="addCityForm" novalidate>
+						  <div class="modal-body">
+							
+							<div class="row">
+								<div class="form-group">
+									<div class="col-sm-12">
+									<div class="col-sm-12">
+									<input id="form-field-1" class="col-sm-12" name="name" placeholder="City Name" ng-model="city.name" required="" type="text">
+									</div>
+								</div>
+								</div>
+								<div class="form-group">
+								<div class="col-sm-12">
+									<div class="col-sm-12">
+										<select id="contactState" name="stateId" class="select2 col-sm-12" data-placeholder="Click to Choose State..." ng-model="city.stateId"  ng-options="state.name for state in stateList">
+																					<option value=""></option>
+
+											</select>
+							
+									</div>
+								</div>
+								</div>
+								
+							
+
+								
+								</div>
+							</div>	
+								
+						  </div>
+						  <div class="modal-footer">
+							<button class="btn btn-info" ng-click="saveCity(city)" ng-disabled="addCityForm.$invalid">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								Save
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						  </div>
+						</form>
+					  </div>
+						</div>
+					  </div>
+					</div>
+				<!--Add City Modal Ends-->
+	
 </div>
 
 </div><!-- /.col -->
@@ -1303,4 +1367,47 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="assets/js/jquery-1.11.3.min.js"></script>
+<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+		<script src="assets/js/jquery.bootstrap-duallistbox.min.js"></script>
+		<script src="assets/js/jquery.raty.min.js"></script>
+		<script src="assets/js/bootstrap-multiselect.min.js"></script>
+		<script src="assets/js/select2.min.js"></script>
+		<script src="assets/js/jquery-typeahead.js"></script>
+
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($){
+				//////////////////
+				//select2
+				$('.select2').css('width','200px').select2({allowClear:true})
+				
+				//in ajax mode, remove remaining elements before leaving page
+				$(document).one('ajaxloadstart.page', function(e) {
+					$('[class*=select2]').remove();
+					
+				});
+			
+			});
+		</script>
+
 <div ng-include="footer"></div>

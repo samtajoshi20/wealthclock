@@ -100,6 +100,28 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                         console.log($scope.contactResponseData);
                       });            
                 }
+                
+                $scope.cityMaster = {};
+                $scope.saveCity = function(city) {
+                      $scope.cityMaster = angular.copy(city);
+                      console.log($scope.cityMaster);
+                      $http.post($rootScope.baseUrl+'companyController/addCity', $scope.cityMaster).then(function(response){
+                        $scope.cityResponseData = response.data;
+                        console.log($scope.cityResponseData);
+                      });            
+                }
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchState').then(function(response){
+                        $scope.stateList = response.data;
+                        console.log($scope.stateList);
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
+                        $scope.cityList = response.data;
+                        console.log($scope.cityList);
+                      });
+                //$scope.cityList = ["Emil", "Tobias", "Linus"];
+              //  $scope.stateList = ["Emil", "Tobias", "Linus"];
 
 		});
 

@@ -51,6 +51,29 @@ class CompanyController extends CI_Controller {
 		$postData = json_decode($data);
 		$this->MainModel->insert_entry('contact', $postData);
  		print_r($postData);
-		echo '1';
+		//echo '1';
+	}
+	
+	public function addCity()
+	{
+		$data = file_get_contents("php://input");
+		$postData = json_decode($data);
+		$this->MainModel->insert_entry('city', $postData);
+ 		print_r($postData);
+		//echo '1';
+	}
+	
+	public function fetchState()
+	{
+		
+	$responseData = $this->MainModel->select_entry('state', 'id, name');
+	echo json_encode($responseData);
+	}
+	
+	public function fetchCity()
+	{
+		
+	$responseData = $this->MainModel->select_entry('city', 'id, name');
+	echo json_encode($responseData);
 	}
 }
