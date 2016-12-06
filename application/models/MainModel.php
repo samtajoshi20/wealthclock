@@ -20,6 +20,24 @@ class MainModel extends CI_Model {
             	return $this->db->error();
                 //echo $this->db->last_query();exit;
         }
+		
+		public function select_row($table, $select='*', $where='', $limit='')
+        {            
+            $this->db->select($select);
+            $this->db->from($table);
+            if(!empty($where))
+            {
+                foreach($where as $whereCol => $whereVal)
+                {
+                    $this->db->where($whereCol, $whereVal);
+                }
+            }
+            
+            if($limit)
+            $this->db->limit($limit);
+            $query = $this->db->get();
+            return $query->row();
+        }
 
         public function select_entry($table, $select='*', $where='', $limit='')
         {            

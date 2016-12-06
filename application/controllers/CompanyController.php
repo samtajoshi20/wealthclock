@@ -49,31 +49,36 @@ class CompanyController extends CI_Controller {
 	{
 		$data = file_get_contents("php://input");
 		$postData = json_decode($data);
+		$postData->createdDate = date('Y-m-d H:i:s');
+		$postData->status = 1;
 		$this->MainModel->insert_entry('contact', $postData);
- 		print_r($postData);
-		//echo '1';
+ 		echo true;
 	}
 	
 	public function addCity()
 	{
 		$data = file_get_contents("php://input");
 		$postData = json_decode($data);
+		$where = array('name'=>$postData->stateId);
+		$responseData = $this->MainModel->select_row('state', 'id', $where);
+		$postData->stateId = $responseData->id;
+		$postData->createdDate = date('Y-m-d H:i:s');
+		$postData->status = 1;
 		$this->MainModel->insert_entry('city', $postData);
- 		print_r($postData);
-		//echo '1';
+ 		echo true;
 	}
 	
 	public function fetchState()
 	{
-		
-	$responseData = $this->MainModel->select_entry('state', 'id, name');
-	echo json_encode($responseData);
+		$where = array('status'=>1);
+		$responseData = $this->MainModel->select_entry('state', 'id, name', $where);
+		echo json_encode($responseData);
 	}
 	
 	public function fetchCity()
 	{
-		
-	$responseData = $this->MainModel->select_entry('city', 'id, name');
-	echo json_encode($responseData);
+		$where = array('status'=>1);
+		$responseData = $this->MainModel->select_entry('city', 'id, name', $where);
+		echo json_encode($responseData);	
 	}
 }

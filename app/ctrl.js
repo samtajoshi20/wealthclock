@@ -93,6 +93,7 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                 $scope.saveContact = function(contact) {
                       $scope.contactMaster = angular.copy(contact);
                       console.log($scope.contactMaster);
+                      $scope.contactMaster.contactCity = jQuery('#select2-contactCity-container').attr("title");
                       $http.post($rootScope.baseUrl+'companyController/addContact', $scope.contactMaster).then(function(response){
                         $scope.contactResponseData = response.data;
                         console.log($scope.contactResponseData);
@@ -102,24 +103,23 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                 $scope.cityMaster = {};
                 $scope.saveCity = function(city) {
                       $scope.cityMaster = angular.copy(city);
-                      console.log($scope.cityMaster);
+                      $scope.cityMaster.stateId = jQuery('#select2-contactState-container').attr("title");
                       $http.post($rootScope.baseUrl+'companyController/addCity', $scope.cityMaster).then(function(response){
                         $scope.cityResponseData = response.data;
-                        console.log($scope.cityResponseData);
+                        $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
+                        $scope.cityList = response.data;
+                      });
+                        
                       });            
                 }
                 
                 $http.get($rootScope.baseUrl+'companyController/fetchState').then(function(response){
                         $scope.stateList = response.data;
-                        console.log($scope.stateList);
                       });
                 
                 $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
                         $scope.cityList = response.data;
-                        console.log($scope.cityList);
                       });
-                //$scope.cityList = ["Emil", "Tobias", "Linus"];
-              //  $scope.stateList = ["Emil", "Tobias", "Linus"];
-
+              
 		});
 
