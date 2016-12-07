@@ -59,13 +59,22 @@ class CompanyController extends CI_Controller {
 	{
 		$data = file_get_contents("php://input");
 		$postData = json_decode($data);
-		$where = array('name'=>$postData->stateId);
-		$responseData = $this->MainModel->select_row('state', 'id', $where);
-		$postData->stateId = $responseData->id;
-		$postData->createdDate = date('Y-m-d H:i:s');
-		$postData->status = 1;
-		$this->MainModel->insert_entry('city', $postData);
- 		echo true;
+		$where = array('name'=>$postData->name);
+		$responseData = $this->MainModel->select_row('city', 'id', $where);
+		if(empty($responseData))
+		{
+			$where = array('name'=>$postData->stateId);
+			$responseData = $this->MainModel->select_row('state', 'id', $where);
+			$postData->stateId = $responseData->id;
+			$postData->createdDate = date('Y-m-d H:i:s');
+			$postData->status = 1;
+			$this->MainModel->insert_entry('city', $postData);
+			echo true;
+		}
+		else {
+			echo false;
+		}
+		
 	}
 	
 	public function fetchState()

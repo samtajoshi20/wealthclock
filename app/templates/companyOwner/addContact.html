@@ -14,6 +14,8 @@
 		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 		<link rel="stylesheet" href="assets/css/select2.min.css" />
+		
+		<link rel="stylesheet" href="assets/css/jquery.gritter.min.css" />
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
@@ -989,15 +991,15 @@
 
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Contact Name<span class="red-star">*</span></label>
-				<input id="form-field-1" name="contactName" class="col-sm-8" placeholder="First Name" type="text" ng-model="contact.contactName" required>
+				<input id="form-field-1" name="name" class="col-sm-8" placeholder="Full Name" type="text" ng-model="contact.name" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactName.$touched">
-															<small ng-show="addContactForm.contactName.$error.required">Please Enter Contact Name.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.name.$touched">
+															<small ng-show="addContactForm.name.$error.required">Please Enter Contact Name.</small>
 															</div>
 				</div>
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Company Group</label>
-				<input id="form-field-1" class="col-sm-8" placeholder="Company Group" name="contactCompanyGroup" ng-model="contact.contactCompanyGroup" type="text">
+				<input id="form-field-1" class="col-sm-8" placeholder="Company Group" name="companyGroup" ng-model="contact.companyGroup" type="text">
 				</div>
 				
 			</div>
@@ -1005,18 +1007,18 @@
 
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Email<span class="red-star">*</span></label>
-				<input id="form-field-1" name="contactEmail" class="col-sm-8" placeholder="Please Enter Email" type="email" ng-model="contact.contactEmail" required>
+				<input id="form-field-1" name="email" class="col-sm-8" placeholder="Please Enter Email" type="email" ng-model="contact.email" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactEmail.$touched">
-															<small ng-show="addContactForm.contactEmail.$error.required || addContactForm.contactEmail.$error.email">Please Enter Valid Email.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.email.$touched">
+															<small ng-show="addContactForm.email.$error.required || addContactForm.email.$error.email">Please Enter Valid Email.</small>
 															</div>
 				</div>
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Label<span class="red-star">*</span></label>
-				<input id="form-field-1" class="col-sm-8" name="contactLabel" placeholder="Label for recall" type="text" ng-model="contact.contactLabel" required>
+				<input id="form-field-1" class="col-sm-8" name="label" placeholder="Label for recall" type="text" ng-model="contact.label" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactLabel.$touched">
-															<small ng-show="addContactForm.contactLabel.$error.required">Please Select a Label.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.label.$touched">
+															<small ng-show="addContactForm.label.$error.required">Please Select a Label.</small>
 															</div>
 				</div>
 				
@@ -1025,18 +1027,18 @@
 				
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Address<span class="red-star">*</span></label>
-				<textarea id="form-field-1" name="contactAddress" class="col-sm-8" placeholder="Address of Contact" ng-model="contact.contactAddress" required></textarea>
+				<textarea id="form-field-1" name="address" class="col-sm-8" placeholder="Address of Contact" ng-model="contact.address" required></textarea>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactAddress.$touched">
-															<small ng-show="addContactForm.contactAddress.$error.required">Please Enter Address.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.address.$touched">
+															<small ng-show="addContactForm.address.$error.required">Please Enter Address.</small>
 															</div>
 				</div>
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Place<span class="red-star">*</span></label>
-				<input id="form-field-1" class="col-sm-8" placeholder="Place/Branch/Office" name="contactPlace" ng-model="contact.contactPlace" type="text" required>
+				<input id="form-field-1" class="col-sm-8" placeholder="Place/Branch/Office" name="place" ng-model="contact.place" type="text" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactPlace.$touched">
-															<small ng-show="addContactForm.contactPlace.$error.required">Please Enter Place.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.place.$touched">
+															<small ng-show="addContactForm.place.$error.required">Please Enter Place.</small>
 															</div>
 				</div>
 				
@@ -1045,26 +1047,26 @@
 
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">PinCode<span class="red-star">*</span></label>
-				<input id="form-field-1" class="col-sm-8" name="contactPinCode" ng-model="contact.contactPinCode" placeholder="PinCode" type="text" required>
+				<input id="form-field-1" class="col-sm-8" name="contactPinCode" ng-model="contact.pinCode" placeholder="PinCode" type="text" required>
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactPinCode.$touched">
-															<small ng-show="addContactForm.contactPinCode.$error.required">Please Enter PinCode.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.pinCode.$touched">
+															<small ng-show="addContactForm.pinCode.$error.required">Please Enter PinCode.</small>
 															</div>
 				</div>
 				<div class="col-sm-6">
 					
 				<label class="col-sm-4 control-label">City<span class="red-star">*</span></label>
 				&nbsp;
-								<select id="contactCity" name="contactCity" class="select2 col-sm-8" data-placeholder="Click to Choose..." ng-model="contact.contactCity"  ng-options="city.name for city in cityList">
+								<select id="contactCity" name="city" class="select2 col-sm-8" data-placeholder="Click to Choose..." ng-model="contact.city"  ng-options="city.name for city in cityList">
 									<option value=""></option>
 											</select>
-								<span class="ui-pg-button ui-corner-all pull-right" data-toggle="modal" data-target="#addCityModal" title="Add new row"><span class="ui-pg-div"><span class="ui-icon ace-icon fa fa-plus-circle purple"></span></span></span>
+								<button style="margin-left:50px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCityModal" title="Add new row">Add City</button>
 				
 				
 				
 				<label class="col-sm-4 control-label">&nbsp;</label>
-				<div ng-show="addContactForm.$submitted || addContactForm.contactCity.$touched">
-															<small ng-show="addContactForm.contactCity.$error.required">Please Enter City.</small>
+				<div ng-show="addContactForm.$submitted || addContactForm.city.$touched">
+															<small ng-show="addContactForm.city.$error.required">Please Enter City.</small>
 															</div>
 				
 				</div>
@@ -1086,16 +1088,16 @@
 						</div>
 		
 						<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Landline 1" type="text">
+							<input id="form-field-1" class="col-sm-12" placeholder="Landline 1" type="text" ng-model="city.landline1" name="landline1" />
 							</div>
 						<div class="col-sm-3">
-						<input id="form-field-1" class="col-sm-12" placeholder="Landline 2" type="text">
+						<input id="form-field-1" class="col-sm-12" placeholder="Landline 2" type="text" ng-model="city.landline2" name="landline2" />
 						</div>
 						<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Mobile 1" type="text">				
+							<input id="form-field-1" class="col-sm-12" placeholder="Mobile 1" type="text" ng-model="city.mobile1" name="mobile1" />				
 						</div>
 						<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Fax 1" type="text">				
+							<input id="form-field-1" class="col-sm-12" placeholder="Fax 1" type="text" ng-model="city.fax1" name="fax1">				
 						</div>
 				</div>
 
@@ -1103,13 +1105,13 @@
 				<div class="form-group">
 				
 				<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Landline 3" type="text" name="landline3">
+							<input id="form-field-1" class="col-sm-12" placeholder="Landline 3" type="text" name="landline3" ng-model="city.landline3" name="landline3" />
 							</div>
 						<div class="col-sm-3">
-						<input id="form-field-1" class="col-sm-12" placeholder="Landline 4" type="text">
+						<input id="form-field-1" class="col-sm-12" placeholder="Landline 4" type="text" ng-model="city.landline4" name="landline4" />
 						</div>
 						<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Mobile 2" type="text">				
+							<input id="form-field-1" class="col-sm-12" placeholder="Mobile 2" type="text" ng-model="city.mobile2" name="mobile2" />				
 						</div>
 						<!--<div class="col-sm-3">-->
 						<!--	<input id="form-field-1" class="col-sm-12" placeholder="Fax 1" type="text">				-->
@@ -1128,13 +1130,13 @@
 						</div>
 				
 						<div class="col-sm-3">
-							<input id="form-field-1" class="col-sm-12" placeholder="Alternate Email" type="email" ng-model="">
-							<div ng-show="addContactForm.$submitted || addContactForm.contactEmail.$touched">
-															<small ng-show="addContactForm.contactEmail.$error.required || addContactForm.contactEmail.$error.email">Please Enter Valid Email.</small>
+							<input id="form-field-1" class="col-sm-12" placeholder="Alternate Email" type="email" ng-model="city.alternateEmail" name="alternateEmail" />
+							<div ng-show="addContactForm.$submitted || addContactForm.alternateEmail.$touched">
+															<small ng-show="addContactForm.alternateEmail.$error.email">Please Enter Valid Email.</small>
 															</div>
 							</div>
 						<div class="col-sm-3">
-						<input id="form-field-1" class="col-sm-12" placeholder="Website" type="text">
+						<input id="form-field-1" class="col-sm-12" placeholder="Website" type="text" ng-model="city.website" name="website" />
 						</div>
 						<!--<div class="col-sm-3">-->
 						<!--	<input id="form-field-1" class="col-sm-12" placeholder="Mobile 1" type="text">				-->
@@ -1152,88 +1154,68 @@
 			<div class="col-sm-12">
 			<h4 class="header green clearfix">Source Details</h4>
 					<div class="form-group">				
-						<div class="col-sm-4">
-							Source Type<span class="red-star">*</span>
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">Source Type<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Source type" name="sourceType" ng-model="contact.sourceType" required/>
+							<label class="col-sm-4 control-label">&nbsp;</label>				
+							<div ng-show="addContactForm.$submitted || addContactForm.sourceType.$touched">
+																	<small ng-show="addContactForm.sourceType.$error.required">Please Enter Source Type.</small>
+																	</div>
 						</div>
-						<div class="col-sm-8">
-						Source Details<span class="red-star">*</span>
-						</div>
-
-						<div class="col-sm-4">
-											<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Source type" name="contactSourceType" ng-model="contact.contactSourceType" required/>
-												
-				<div ng-show="addContactForm.$submitted || addContactForm.contactSourceType.$touched">
-															<small ng-show="addContactForm.contactSourceType.$error.required">Please Enter Source Type.</small>
+						
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">Source Details<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Source Details" name="sourceDetails" ng-model="contact.sourceDetails" required />
+							<label class="col-sm-4 control-label">&nbsp;</label>				
+							<div ng-show="addContactForm.$submitted || addContactForm.sourceDetails.$touched">
+															<small ng-show="addContactForm.sourceDetails.$error.required">Please Enter Source Details.</small>
 															</div>
-											</div>
 						</div>
-						<div class="col-sm-8">
-								<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Source Details" name="contactSourceDetails" ng-model="contact.contactSourceDetails" required />
-												
-				<div ng-show="addContactForm.$submitted || addContactForm.contactSourceDetails.$touched">
-															<small ng-show="addContactForm.contactSourceDetails.$error.required">Please Enter Source Details.</small>
-															</div>
-								</div>
-						</div>
-
 					</div>
-			</div>
-			
-			<div class="col-sm-12">
+					
 					<div class="form-group">				
-						<div class="col-sm-4">
-							Source Status
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">Source Status<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Source Status" name="sourceStatus" ng-model="contact.sourceStatus" />
+							<label class="col-sm-4 control-label">&nbsp;</label>				
 						</div>
-						<div class="col-sm-8">
-						Business Value
+						
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">Business Value<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Business Value" name="businessValue" ng-model="contact.businessValue" />
+							<label class="col-sm-4 control-label">&nbsp;</label>				
+							
 						</div>
-
-						<div class="col-sm-4">
-											<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Source Status" name="contactSourceStatus" ng-model="contact.contactSourceStatus" />
-											</div>
-						</div>
-						<div class="col-sm-8">
-								<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Business Value" name="contactBusinessValue" ng-model="contact.contactBusinessValue" />
-								</div>
-						</div>
-
 					</div>
-			</div>
-			
-			<div class="col-sm-12">
+					
 					<div class="form-group">				
-						<div class="col-sm-4">
-							Relationship Manager<span class="red-star">*</span>
-						</div>
-						<div class="col-sm-8">
-							Accompany Relationship Manager<span class="red-star">*</span>
-						</div>
-
-						<div class="col-sm-4">
-											<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Relationship Manager" name="contactRelationshipManager" ng-model="contact.contactRelationshipManager" required/>
-												
-				<div ng-show="addContactForm.$submitted || addContactForm.contactRelationshipManager.$touched">
-															<small ng-show="addContactForm.contactRelationshipManager.$error.required">Please Select Relationship Manager.</small>
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">R. M.<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Relationship Manager" name="relationshipManager" ng-model="contact.relationshipManager" required/>
+							<label class="col-sm-4 control-label">&nbsp;</label>				
+							<div ng-show="addContactForm.$submitted || addContactForm.relationshipManager.$touched">
+															<small ng-show="addContactForm.relationshipManager.$error.required">Please Select Relationship Manager.</small>
 															</div>
-											</div>
 						</div>
-						<div class="col-sm-8">
-								<div class="pos-rel">
-												<input class="typeahead scrollable col-sm-12" type="text" placeholder="Accompany Relationship Manager" name="contactAccompanyRM" ng-model="contact.contactAccompanyRM" required/>
-												
-				<div ng-show="addContactForm.$submitted || addContactForm.contactAccompanyRM.$touched">
-															<small ng-show="addContactForm.contactAccompanyRM.$error.required">Please Select Accompnay Relationship Manager.</small>
+						
+						<div class="col-sm-6">
+							<label class="col-sm-4 control-label">Accompany R. M.<span class="red-star">*</span></label>
+								<input class="col-sm-8" type="text" placeholder="Accompany Relationship Manager" name="accompanyRM" ng-model="contact.accompanyRM" required/>
+							<label class="col-sm-4 control-label">&nbsp;</label>				
+							
+							<div ng-show="addContactForm.$submitted || addContactForm.accompanyRM.$touched">
+															<small ng-show="addContactForm.accompanyRM.$error.required">Please Select Accompnay Relationship Manager.</small>
 															</div>
-								</div>
 						</div>
-
 					</div>
+					
+					
 			</div>
+						
+			
+			
+			
+			
 			
 			<div class="col-sm-12">
 			<h4 class="header green clearfix">Interested Products</h4>
@@ -1241,12 +1223,12 @@
 
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Products<span class="red-star">*</span></label>
-				<input id="form-field-1" name="contactProducts" class="col-sm-8" placeholder="Interested Products" type="text" ng-model="contact.contactProducts">
+				<input id="form-field-1" name="products" class="col-sm-8" placeholder="Interested Products" type="text" ng-model="contact.products">
 				
 				</div>
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Information</label>
-				<input id="form-field-1" class="col-sm-8" placeholder="Information" name="contactInformation" ng-model="contact.contactInformation" type="text">
+				<input id="form-field-1" class="col-sm-8" placeholder="Information" name="information" ng-model="contact.information" type="text">
 				</div>
 				
 			</div>
@@ -1258,33 +1240,33 @@
 				<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Type</label>
-						<input id="form-field-1" name="contactType" class="col-sm-8" placeholder="Type" type="text" ng-model="contact.contactType">
+						<input id="form-field-1" name="type" class="col-sm-8" placeholder="Type" type="text" ng-model="contact.type">
 					</div>
 					
 						<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Status</label>
-						<input id="form-field-1" name="contactStatus" class="col-sm-8" placeholder="Status" type="text" ng-model="contact.contactStatus">
+						<input id="form-field-1" name="status" class="col-sm-8" placeholder="Status" type="text" ng-model="contact.status">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Next Follow up Date</label>
-						<input id="form-field-1" name="contactFollowDate" class="col-sm-8" placeholder="Next Follow up Date" type="text" ng-model="contact.contactFollowDate">
+						<input id="form-field-1" name="followDate" class="col-sm-8" placeholder="Next Follow up Date" type="text" ng-model="contact.followDate">
 					</div>
 						<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Next Follow up Time</label>
-						<input id="form-field-1" name="contactFollowTime" class="col-sm-8" placeholder="Next Follow up Time" type="text" ng-model="contact.contactFollowTime">
+						<input id="form-field-1" name="followTime" class="col-sm-8" placeholder="Next Follow up Time" type="text" ng-model="contact.followTime">
 					</div>
 			</div>
 				
 			<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Notify</label>
-						<input id="form-field-1" name="contactNotify" class="col-sm-8" placeholder="Notufy" type="text" ng-model="contact.contactNotify">
+						<input id="form-field-1" name="notify" class="col-sm-8" placeholder="Notify" type="text" ng-model="contact.notify">
 					</div>
 						<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Remark</label>
-						<input id="form-field-1" name="contactRemark" class="col-sm-8" placeholder="Remark" type="text" ng-model="contact.contactRemark">
+						<input id="form-field-1" name="remark" class="col-sm-8" placeholder="Remark" type="text" ng-model="contact.remark">
 				</div>
 			</div>
 			
@@ -1349,7 +1331,7 @@
 								
 						  </div>
 						  <div class="modal-footer">
-							<button class="btn btn-info" ng-click="saveCity(city)" ng-disabled="addCityForm.$invalid">
+							<button class="btn btn-info" ng-click="saveCity(city)" ng-disabled="addCityForm.$invalid" id="gritter-error">
 								<i class="ace-icon fa fa-check bigger-110"></i>
 								Save
 							</button>
@@ -1361,6 +1343,17 @@
 					  </div>
 					</div>
 				<!--Add City Modal Ends-->
+				
+				<div id="gritter-notice-wrapper" style="display: none;">
+					<div class="gritter-item-wrapper " style="" role="alert">
+						<div class="gritter-top"></div>
+						<div class="gritter-item">
+						<div class="gritter-without-image">{{message}}</div>
+						<div style="clear:both"></div>
+						</div>
+						<div class="gritter-bottom"></div>
+					</div>
+				</div>
 	
 </div>
 
@@ -1385,11 +1378,9 @@
 		<script src="assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
-		<script src="assets/js/jquery.bootstrap-duallistbox.min.js"></script>
-		<script src="assets/js/jquery.raty.min.js"></script>
-		<script src="assets/js/bootstrap-multiselect.min.js"></script>
+
 		<script src="assets/js/select2.min.js"></script>
-		<script src="assets/js/jquery-typeahead.js"></script>
+		<!--<script src="assets/js/jquery.gritter.min.js"></script>-->
 
 		<!-- ace scripts -->
 		<script src="assets/js/ace-elements.min.js"></script>
@@ -1408,8 +1399,26 @@
 					$('[class*=select2]').remove();
 					
 				});
+				
+				
 			
 			});
+			
+			
+
+var modal_needfix=true;
+$("#addCityModal").on('shown.bs.modal', function(){
+    var modalscope=$(this);
+    modalscope.css({paddingRight:""});
+    if(modal_needfix){
+        window.addEventListener("resize",function(){
+            requestAnimationFrame(function(){// be sure to act after the pluggin script
+                modalscope.css({paddingRight:""});
+            });
+        });
+        modal_needfix=false;
+    }
+});
 		</script>
 
 <div ng-include="footer"></div>
