@@ -7,7 +7,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
 <!-- jQuery -->
-	<script src="<?php echo base_url();?>assets-front/js/jquery.min.js"></script>
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet"> -->
 	
