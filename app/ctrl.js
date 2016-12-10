@@ -93,11 +93,57 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                 $scope.saveContact = function(contact) {
                       $scope.contactMaster = angular.copy(contact);
                       console.log($scope.contactMaster);
+                      $scope.contactMaster.contactCity = jQuery('#select2-city-container').attr("title");
                       $http.post($rootScope.baseUrl+'companyController/addContact', $scope.contactMaster).then(function(response){
                         $scope.contactResponseData = response.data;
                         console.log($scope.contactResponseData);
                       });            
                 }
-
+                
+                $scope.cityMaster = {};
+                $scope.saveCity = function(city) {
+                      $scope.cityMaster = angular.copy(city);
+                      $scope.cityMaster.stateId = jQuery('#select2-state-container').attr("title");
+                      $http.post($rootScope.baseUrl+'companyController/addCity', $scope.cityMaster).then(function(response){
+                        $scope.cityResponseData = response.data;
+                        if ($scope.cityResponseData) {
+                            $scope.message = "Record added successfully";
+                            $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
+                        $scope.cityList = response.data;
+                        });
+                                    jQuery('#addCityModal').hide();
+                                    jQuery('.modal-backdrop').hide();
+                                    jQuery('#gritter-notice-wrapper').show();
+                                    jQuery('.gritter-item-wrapper').removeClass('gritter-error');
+                                    jQuery('.gritter-item-wrapper').addClass('gritter-success');
+                                    jQuery('#gritter-notice-wrapper').fadeOut(6000);
+                                    jQuery('#select2-city-container').attr("title", $scope.cityMaster.name);
+                                    jQuery('#select2-city-container').html('<span class="select2-selection__clear">×</span>'+$scope.cityMaster.name);
+                      
+                            
+                        }
+                        else {
+                            $scope.message = "Record already exists";
+                            jQuery('.modal-backdrop').hide();
+                            jQuery('#addCityModal').hide();
+                            jQuery('#gritter-notice-wrapper').show();
+                            jQuery('.gritter-item-wrapper').removeClass('gritter-success');
+                            jQuery('.gritter-item-wrapper').addClass('gritter-error');
+                            jQuery('#gritter-notice-wrapper').fadeOut(6000);
+                            jQuery('#select2-city-container').attr("title", $scope.cityMaster.name);
+                            jQuery('#select2-city-container').html('<span class="select2-selection__clear">×</span>'+$scope.cityMaster.name);
+                        }
+                        
+                      });            
+                }
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchState').then(function(response){
+                        $scope.stateList = response.data;
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
+                        $scope.cityList = response.data;
+                      });
+              
 		});
 
