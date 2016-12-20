@@ -90,4 +90,39 @@ class CompanyController extends CI_Controller {
 		$responseData = $this->MainModel->select_entry('city', 'id, name', $where);
 		echo json_encode($responseData);	
 	}
+	
+	public function fetchSourceType()
+	{
+		$where = array('status'=>1);
+		$responseData = $this->MainModel->select_entry('sourceType', 'id, source', $where);
+		echo json_encode($responseData);	
+	}
+	
+	public function fetchRM()
+	{
+		$where = array('designation'=>'RM', 'status'=>1);
+		$responseData = $this->MainModel->select_entry('employee', 'id, name', $where);
+		echo json_encode($responseData);	
+	}
+	
+	public function fetchARM()
+	{
+		$where = array('designation'=>'ARM', 'status'=>1);
+		$responseData = $this->MainModel->select_entry('employee', 'id, name', $where);
+		echo json_encode($responseData);	
+	}
+
+	public function fetchProduct()
+	{
+		$where = array('status'=>1);
+		$responseData = $this->MainModel->select_entry('product', 'id, product', $where);
+		echo json_encode($responseData);	
+	}
+	
+	public function fetchNotify()
+	{
+		$where = array('status'=>1);
+		$responseData = $this->MainModel->select_entry('employee', 'id, name', $where);
+		echo json_encode($responseData);	
+	}
 }

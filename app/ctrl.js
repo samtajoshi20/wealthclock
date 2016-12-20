@@ -116,7 +116,7 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                                     jQuery('#gritter-notice-wrapper').show();
                                     jQuery('.gritter-item-wrapper').removeClass('gritter-error');
                                     jQuery('.gritter-item-wrapper').addClass('gritter-success');
-                                    jQuery('#gritter-notice-wrapper').fadeOut(6000);
+                                    jQuery('#gritter-notice-wrapper').fadeOut(3000);
                                     jQuery('#select2-city-container').attr("title", $scope.cityMaster.name);
                                     jQuery('#select2-city-container').html('<span class="select2-selection__clear">×</span>'+$scope.cityMaster.name);
                       
@@ -144,6 +144,29 @@ app.controller('companyOwnerCtrl', function($scope, $http, $location, $rootScope
                 $http.get($rootScope.baseUrl+'companyController/fetchCity').then(function(response){
                         $scope.cityList = response.data;
                       });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchSourceType').then(function(response){
+                        $scope.sourceTypeList = response.data;
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchRM').then(function(response){
+                        $scope.RMList = response.data;
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchARM').then(function(response){
+                        $scope.ARMList = response.data;
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchProduct').then(function(response){
+                        $scope.productList = response.data;
+                      });
+                
+                $http.get($rootScope.baseUrl+'companyController/fetchNotify').then(function(response){
+                        $scope.notifyList = response.data;
+                      });
+                
+                
+                
               
 		});
 

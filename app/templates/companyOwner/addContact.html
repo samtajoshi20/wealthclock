@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="assets/css/select2.min.css" />
 		
 		<link rel="stylesheet" href="assets/css/jquery.gritter.min.css" />
+		<link rel="stylesheet" href="assets/css/jquery-ui.min.css" />
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
@@ -38,6 +39,7 @@
 
 		<!-- ace settings handler -->
 		<script src="assets/js/ace-extra.min.js"></script>
+		<script src="assets/js/jquery-ui.min.js"></script>
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -1057,10 +1059,10 @@
 					
 				<label class="col-sm-4 control-label">City<span class="red-star">*</span></label>
 				&nbsp;
-								<select id="contactCity" name="city" class="select2 col-sm-8" data-placeholder="Click to Choose..." ng-model="contact.city"  ng-options="city.name for city in cityList">
+								<select id="city" name="city" class="select2 col-sm-8" data-placeholder="Click to Choose..." ng-model="contact.city"  ng-options="city.name for city in cityList">
 									<option value=""></option>
 											</select>
-								<button style="margin-left:50px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCityModal" title="Add new row">Add City</button>
+								<span style="margin-left:50px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addCityModal" title="Add new row">Add City</span>
 				
 				
 				
@@ -1156,7 +1158,10 @@
 					<div class="form-group">				
 						<div class="col-sm-6">
 							<label class="col-sm-4 control-label">Source Type<span class="red-star">*</span></label>
-								<input class="col-sm-8" type="text" placeholder="Source type" name="sourceType" ng-model="contact.sourceType" required/>
+							<select id="sourceType" name="sourceTypeId" class="select2 col-sm-12" data-placeholder="Click to Choose Soruce..." ng-model="contact.sourceType"  ng-options="source.source for source in sourceTypeList" required>
+																					<option value=""></option>
+							</select>
+							
 							<label class="col-sm-4 control-label">&nbsp;</label>				
 							<div ng-show="addContactForm.$submitted || addContactForm.sourceType.$touched">
 																	<small ng-show="addContactForm.sourceType.$error.required">Please Enter Source Type.</small>
@@ -1175,13 +1180,13 @@
 					
 					<div class="form-group">				
 						<div class="col-sm-6">
-							<label class="col-sm-4 control-label">Source Status<span class="red-star">*</span></label>
+							<label class="col-sm-4 control-label">Source Status</label>
 								<input class="col-sm-8" type="text" placeholder="Source Status" name="sourceStatus" ng-model="contact.sourceStatus" />
 							<label class="col-sm-4 control-label">&nbsp;</label>				
 						</div>
 						
 						<div class="col-sm-6">
-							<label class="col-sm-4 control-label">Business Value<span class="red-star">*</span></label>
+							<label class="col-sm-4 control-label">Business Value</label>
 								<input class="col-sm-8" type="text" placeholder="Business Value" name="businessValue" ng-model="contact.businessValue" />
 							<label class="col-sm-4 control-label">&nbsp;</label>				
 							
@@ -1191,40 +1196,41 @@
 					<div class="form-group">				
 						<div class="col-sm-6">
 							<label class="col-sm-4 control-label">R. M.<span class="red-star">*</span></label>
-								<input class="col-sm-8" type="text" placeholder="Relationship Manager" name="relationshipManager" ng-model="contact.relationshipManager" required/>
+							<select id="RM" name="RM" class="select2 col-sm-8" data-placeholder="Click to Choose RM..." ng-model="contact.RM"  ng-options="RM.name for RM in RMList" required>
+																					<option value=""></option>
+							</select>
+								
 							<label class="col-sm-4 control-label">&nbsp;</label>				
-							<div ng-show="addContactForm.$submitted || addContactForm.relationshipManager.$touched">
-															<small ng-show="addContactForm.relationshipManager.$error.required">Please Select Relationship Manager.</small>
+							<div ng-show="addContactForm.$submitted || addContactForm.RM.$touched">
+															<small ng-show="addContactForm.RM.$error.required">Please Select Relationship Manager.</small>
 															</div>
 						</div>
 						
 						<div class="col-sm-6">
 							<label class="col-sm-4 control-label">Accompany R. M.<span class="red-star">*</span></label>
-								<input class="col-sm-8" type="text" placeholder="Accompany Relationship Manager" name="accompanyRM" ng-model="contact.accompanyRM" required/>
+								<select id="ARM" name="ARM" class="select2 col-sm-8" data-placeholder="Click to Choose ARM..." ng-model="contact.ARM"  ng-options="ARM.name for ARM in ARMList" required>
+																					<option value=""></option>
+							</select>
+								
 							<label class="col-sm-4 control-label">&nbsp;</label>				
 							
-							<div ng-show="addContactForm.$submitted || addContactForm.accompanyRM.$touched">
-															<small ng-show="addContactForm.accompanyRM.$error.required">Please Select Accompnay Relationship Manager.</small>
+							<div ng-show="addContactForm.$submitted || addContactForm.ARM.$touched">
+															<small ng-show="addContactForm.ARM.$error.required">Please Select Accompnay Relationship Manager.</small>
 															</div>
 						</div>
 					</div>
-					
-					
 			</div>
-						
-			
-			
-			
-			
 			
 			<div class="col-sm-12">
 			<h4 class="header green clearfix">Interested Products</h4>
 				<div class="form-group">
 
 				<div class="col-sm-6">
-				<label class="col-sm-4 control-label">Products<span class="red-star">*</span></label>
-				<input id="form-field-1" name="products" class="col-sm-8" placeholder="Interested Products" type="text" ng-model="contact.products">
-				
+				<label class="col-sm-4 control-label">Products</label>
+				<select id="product" name="product" class="select2 col-sm-8" data-placeholder="Click to Choose Product..." ng-model="contact.product"  ng-options="product.product for product in productList" >
+						<option value=""></option>
+				</select>
+							
 				</div>
 				<div class="col-sm-6">
 				<label class="col-sm-4 control-label">Information</label>
@@ -1251,7 +1257,7 @@
 				<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Next Follow up Date</label>
-						<input id="form-field-1" name="followDate" class="col-sm-8" placeholder="Next Follow up Date" type="text" ng-model="contact.followDate">
+						<input id="followDate" name="followDate" class="col-sm-8" placeholder="Next Follow up Date" type="text" ng-model="contact.followDate">
 					</div>
 						<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Next Follow up Time</label>
@@ -1262,7 +1268,9 @@
 			<div class="form-group">
 					<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Notify</label>
-						<input id="form-field-1" name="notify" class="col-sm-8" placeholder="Notify" type="text" ng-model="contact.notify">
+						<select id="notify" name="notify" class="select2 col-sm-8" data-placeholder="Click to Choose Person..." ng-model="contact.notify"  ng-options="notify.name for notify in notifyList" required>
+																					<option value=""></option>
+							</select>
 					</div>
 						<div class="col-sm-6">
 						<label class="col-sm-4 control-label">Remark</label>
@@ -1277,7 +1285,7 @@
 			</div>
 			<div class="form-group">
 			<div class="col-md-offset-4 col-md-8">
-				<button class="btn btn-info" ng-click="saveContact(contact)" ng-disabled="addContactForm.$invalid">
+				<button class="btn btn-info" ng-submit="saveContact(contact)" ng-disabled="addContactForm.$invalid">
 					<i class="ace-icon fa fa-check bigger-110"></i>
 					Submit
 				</button>
@@ -1315,7 +1323,7 @@
 								<div class="form-group">
 								<div class="col-sm-12">
 									<div class="col-sm-12">
-										<select id="contactState" name="stateId" class="select2 col-sm-12" data-placeholder="Click to Choose State..." ng-model="city.stateId"  ng-options="state.name for state in stateList">
+										<select id="state" name="stateId" class="select2 col-sm-12" data-placeholder="Click to Choose State..." ng-model="city.stateId"  ng-options="state.name for state in stateList">
 																					<option value=""></option>
 
 											</select>
@@ -1419,6 +1427,33 @@ $("#addCityModal").on('shown.bs.modal', function(){
         modal_needfix=false;
     }
 });
+
+		jQuery( "#followDate" ).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: false,
+					//isRTL:true,
+			
+					
+					/*
+					changeMonth: true,
+					changeYear: true,
+					
+					showButtonPanel: true,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane')
+							.find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+			*/
+				});	
+			
+				
 		</script>
 
 <div ng-include="footer"></div>
